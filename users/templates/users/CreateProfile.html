@@ -1,0 +1,32 @@
+{% extends 'temp.html' %}
+
+{% block title %} Create Profile {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="edit-profile">
+                   <span class="label label-warning">Create Your Profile</span>
+                    <hr>
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if "userprofile_error" in message.tags %}
+                                <div class="alert alert-danger" role="alert">
+                                    {{ message}}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+            
+                    <form  action="{% url 'users:CreateProfile' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ NewProfileForm}}
+                        <input class="btn btn-success" id="conf" type="submit" value="Confirm"/>
+                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'temp.html' %}
+
+{% block title %}
+    Registraion Status
+{% endblock %}
+
+{% block side-pan %} 
+
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilestudent.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Roll Number:</span> {{ request.user.userprofilestudent.rollnum}}</p>
+            <p><span>Current Semester:</span> {{ request.user.userprofilestudent.semester}}</p>
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'student:EditProfile' %}"><button type="button" class="btn btn-warning">Edit Profile</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="registration-status">
+            <div class="row">
+                {% if approved_reg %}
+                    <div class="alert alert-success" role="alert">
+                        <h3>Approved</h3>
+                    </div>
+                    {% for reg in approved_reg %}
+                        <div class="well">
+                            <p>Student name: {{ reg.student_id}}</p>
+                            <p>course name: {{ reg.course_id}}</p>
+                            <p>Registration status: approved</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="row">
+                {% if pending_reg %}
+                    <div class="alert alert-danger" role="alert">
+                        <h3>Pending</h3>
+                    </div>
+                    {% for reg in pending_reg %}
+                        <div class="well">
+                            <p>Student name: {{ reg.student_id}}</p>
+                            <p>course name: {{ reg.course_id}}</p>
+                            <p>Registration status: pending</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+        
+            
+            

@@ -1,0 +1,272 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body{
+    background-color: #eeeeee;
+    overflow: hidden;
+}
+
+.container{
+    width: 100%;
+    overflow: hidden;
+}
+
+.side-pan{
+    height: 100vh;
+    background-color: #222831;
+}
+
+.banner{
+    font-size: 500%;
+    color: #eeeeee42;
+}
+
+#id_remember{
+    display: none;
+}
+
+.login-form{
+    position: relative;
+    display: inline-block;
+    transform: translate(25%, -50%);
+    top: 50vh;
+    max-width: 40%;
+}
+
+.login{
+    position: relative;
+    text-align: center;
+    border: 2px solid #393e46;
+    width: 200%;
+}
+
+.login label{
+    display: none;
+}
+
+.login input{
+    padding: 10px;
+    border: 1px solid #393e46;
+    display: inline-block;
+    margin: 2px 0 2px 0;
+}
+
+.login button{
+    position: relative;
+    display: block;
+    border: 1px solid;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 5px 50px 5px 50px;
+    background-color: #4CAF50;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    width: 45%;
+     
+}
+
+#btn-logout{
+    padding: 5px;
+    background-color: #a64452;
+    color: #eeeeee;
+    border-radius: 5px;
+}
+
+.login a{
+    position: relative;
+    display: inline-block;
+    margin: 2px 0 2px 0;    
+}
+
+.googleauth{
+    position: relative;
+    display: inline-block;
+    margin-top: 1%
+}
+
+.googleauth a img{
+    padding: 0;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px grey;
+}
+
+.profile-detail{
+    margin: 2%;
+    background-color: #eeeeee;
+    color: #393e46;
+}
+
+.profile-detail h2{
+    margin: 0;
+    font-weight: 1000;
+    color: #393e46;
+}
+
+.profile-detail span{
+    font-weight: bold;
+    color: #393e46;
+}
+
+hr{
+    border-top: 2px solid #393e46;
+    border-radius: 50%;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+}
+
+/* Edit profile Form */
+.edit-profile{
+    position: relative;
+    height: -webkit-fill-available;   
+}
+
+.edit-profile form{
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    background-color: #eeeeee;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0.5px #393e4669;
+}
+
+.edit-profile form label{
+    display: block;
+    margin-top: 1%;
+    color: #393e46d9;
+}
+
+.edit-profile form select{
+    border: none;
+}
+
+.edit-profile form input, select{
+    padding: 5px;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin-top: 1%;
+    box-shadow: 0 0 5px 1px #393e464a;
+}
+
+.edit-profile span{
+    position: relative;
+    display: inline-block;
+    font-size: 200%;
+    margin-top: 2%;
+}
+
+#modal-trigger{
+    margin-top: 2%;
+    width: -webkit-fill-available;
+}
+
+/* create registraion form */
+
+.create-reg-form{
+    position: relative;
+    margin: 0;
+}
+
+.create-reg-form ul{
+    list-style-type: none;
+}
+
+.create-reg-form input{
+    display: inline-block;
+}
+
+/* registration status */
+
+.registration-status h3{
+    margin: 0;
+}
+
+.registration-status .well{
+    width: 40%;
+    float: left;
+    margin-left: 1%;
+}
+
+/* result card */
+
+.result-card{
+    position: relative;
+}
+
+.result-card .well{
+    position: relative;
+    float: left;
+    margin: 1%;
+    min-width: 25%;
+    box-shadow: 0 0 0.01px 0 #2196F3;
+}
+
+.result-card h3{
+    margin: 2%;
+    font-weight: bold;
+    color: #222831c2;
+}
+
+.result-card span{
+    color: #393e46b3;
+    font-weight: bold;
+}
+
+/* nav links */
+
+.nav-link{
+    font-weight: bold;
+    color: #eeeeee;
+    background-color: #393e46;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+/* create result form */
+
+.result-input{
+    position: relative;
+    text-align: center;
+}
+
+.result-input form{
+    position: relative;
+    display: inline-block;
+    border: 2px solid #393e4699;
+    padding: 10px;
+    text-align: left;
+    width: -webkit-fill-available;
+}
+
+.result-input form label{
+    display: block;
+    margin-top: 1%;
+}
+
+.result-input form input, select{
+    padding: 5px;
+    border: 2px solid #393e4699;
+    border-radius: 5px;
+    width: -webkit-fill-available;
+    display: inline-block;
+    margin-top: 2%;
+}
+
+#errorMsg ol{
+    position: relative;
+    list-style-type: none;
+    display: inline-block;
+    padding: 5px;
+    background-color: #ff000070;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}

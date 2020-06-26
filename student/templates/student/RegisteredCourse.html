@@ -1,0 +1,40 @@
+{% extends 'temp.html' %}
+
+{% block title %} Registered Courses {% endblock %}
+
+
+{% block side-pan %} 
+
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilestudent.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Roll Number:</span> {{ request.user.userprofilestudent.rollnum}}</p>
+            <p><span>Current Semester:</span> {{ request.user.userprofilestudent.semester}}</p>
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'student:EditProfile' %}"><button type="button" class="btn btn-warning">Edit Profile</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Registered Courses</h3>
+                <hr>
+                {% if reg_courses %}
+
+                    {% for course in reg_courses %}
+                        <a href="{% url 'student:DetailResultView' cid=course.course_id %}"><button type="button" class="btn btn-info">{{ course.course_id}}</button></a>
+                    {% endfor %}
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

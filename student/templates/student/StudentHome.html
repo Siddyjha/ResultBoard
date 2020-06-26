@@ -1,0 +1,36 @@
+{% extends 'temp.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block side-pan %} 
+
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilestudent.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Roll Number:</span> {{ request.user.userprofilestudent.rollnum}}</p>
+            <p><span>Current Semester:</span> {{ request.user.userprofilestudent.semester}}</p>
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'student:EditProfile' %}"><button type="button" class="btn btn-warning">Edit Profile</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %} 
+
+    <div class="container">
+        <div class="row">
+            <a href="{% url 'registration:CreateRegistration' %}">Course Registration</a>
+            <br>
+            <a href="{% url 'student:RegistrationStatus' %}">View Registrations</a>
+            <br>
+            <a href="{% url 'student:RegisteredCourses' %}">Registered Courses</a>
+            <br>
+            <a href="{% url 'student:ViewResults' %}">View Results</a>
+        </div>
+    </div>
+
+{% endblock %}
+

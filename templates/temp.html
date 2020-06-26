@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
+    <title>{% block title %} Title Block {% endblock %}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 side-pan">
+                {% block side-pan %}
+                
+                {% endblock %}
+
+                {% block nav %}
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                        <a class="nav-link " href="{% url 'student:ViewResults' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link " href="{% url 'registration:CreateRegistration' %}">Create Registration</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'student:RegistrationStatus' %}">View Registrations</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'student:RegisteredCourses' %}">View Registered courses</a>
+                        </li>
+                    </ul>
+                {% endblock %}
+            </div>
+            <div class="col-sm-8">
+                {% block body %} 
+                    <p>Body Block</p> 
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>    
+</body>
+</html>
+
+
+            
+
+        
+        
+
+        

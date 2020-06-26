@@ -1,0 +1,48 @@
+{% extends 'temp.html' %}
+
+{% block title %} Results {% endblock %}
+
+{% block side-pan %} 
+
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilestudent.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Roll Number:</span> {{ request.user.userprofilestudent.rollnum}}</p>
+            <p><span>Current Semester:</span> {{ request.user.userprofilestudent.semester}}</p>
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'student:EditProfile' %}"><button type="button" class="btn btn-warning">Edit Profile</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2><span class="label label-primary">Results</span></h2>
+                <hr>
+                <div class="result-card">
+                    {% if result_set %}
+                    {% for result in result_set %}
+                        <a href="{% url 'student:DetailResultView' cid=result.course.cid %}" style="text-decoration: none; color: black;"> 
+                            <div class="well">
+                                <h3>{{ result.course}} {{ result.course_name}}</h3>
+                                <hr>
+                                <span>Exam Type: </span>{{ result.exam_type}} <br>
+                                <span>Your Marks: </span> {{ result.student_marks}} <br>
+                                <span>Total Marks: </span> {{ result.total_marks}} <br>
+                                <span>Highest Marks: </span> {{ result.highest_marks}} <br>
+                                <span>Avg Marks: </span> {{ result.avg_marks}}
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

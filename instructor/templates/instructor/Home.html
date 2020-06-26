@@ -1,0 +1,21 @@
+{% extends 'temp.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block nav %} {% endblock %}
+
+{% block side-pan %} 
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilefaculty.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'result:CreateResult' %}"><button type="button" class="btn btn-info">Create New Result</button></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %} 
+{% endblock%}

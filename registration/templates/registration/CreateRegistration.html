@@ -1,0 +1,66 @@
+{% extends 'temp.html' %}
+
+{% block title %}
+    Create Registration
+{% endblock %}
+
+{% block side-pan %} 
+
+    <div class="well profile-detail">
+        <div class="row">
+            <h2>{{ request.user.userprofilestudent.name}}</h2>
+            <hr>
+            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Roll Number:</span> {{ request.user.userprofilestudent.rollnum}}</p>
+            <p><span>Current Semester:</span> {{ request.user.userprofilestudent.semester}}</p>
+            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
+            <a href="{% url 'student:EditProfile' %}"><button type="button" class="btn btn-warning">Edit Profile</button></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-info" role="alert">
+                    Select Courses you want to register for
+                </div>
+                <hr>
+                <div class="create-reg-form">
+                    <form action="{% url 'registration:CreateRegistration' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ RegistrationForm}}
+                        <input class="btn btn-success" id="conf" type="submit" value="Confirm"/>
+                    </form>
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                {% if messages %}     
+                    {% for message in messages %}
+                        {% if "reg-success" in message.tags %}
+                            <div class="alert alert-success" role="alert">
+                                Registration for course 
+                                {{ message}}
+                                submitted successfully!
+                            </div>
+                        {% endif %}
+                        {% if "reg-exists" in message.tags %}
+                            <div class="alert alert-danger" role="alert">
+                                Registration for course 
+                                {{ message}}
+                                already exists. Check your Registration status <a href="{% url 'student:RegistrationStatus' %}">here</a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}  
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
