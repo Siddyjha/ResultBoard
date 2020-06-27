@@ -16,48 +16,22 @@
   </head>
   <body>
     {% block body %}
-
-    <!--{% if messages %}
-    
-    <div class="container-fluid">
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}-->
-
-    <div class="container">
-      <ul>
-        <!--
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% endif %}
-        
-        
-        
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        
-        -->
-      </ul>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4 side-pan">
-            <h1 class="banner">Result Board</h1>
-        </div>
-        <div class="col-sm-8">
-          {% block content %}
-          {% endblock %}
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4 side-pan">
+              <h1 class="banner">Result Board</h1>
+          </div>
+          <div class="col-sm-8">
+            {% block content %}
+            {% endblock %}
+          </div>
         </div>
       </div>
-    </div>
-    {% endblock %}
-    {% block extra_body %}
+      {% endblock %}
+      {% block extra_body %}
     {% endblock %}
   </body>
 </html>
+
+
+

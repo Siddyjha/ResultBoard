@@ -30,9 +30,9 @@
                     </div>
                     {% for reg in approved_reg %}
                         <div class="well">
-                            <p>Student name: {{ reg.student_id}}</p>
-                            <p>course name: {{ reg.course_id}}</p>
-                            <p>Registration status: approved</p>
+                            <p><span>Student name:</span> {{ reg.student_id}}</p>
+                            <p><span>course name:</span> {{ reg.course_id}}</p>
+                            <p><span>Registration status:</span> approved</p>
                         </div>
                     {% endfor %}
                 {% endif %}
@@ -44,9 +44,9 @@
                     </div>
                     {% for reg in pending_reg %}
                         <div class="well">
-                            <p>Student name: {{ reg.student_id}}</p>
-                            <p>course name: {{ reg.course_id}}</p>
-                            <p>Registration status: pending</p>
+                            <p><span>Student name:</span> {{ reg.student_id}}</p>
+                            <p><span>course name:</span> {{ reg.course_id}}</p>
+                            <p><span>Registration status:</span> pending</p>
                         </div>
                     {% endfor %}
                 {% endif %}

@@ -7,12 +7,10 @@
 
 body{
     background-color: #eeeeee;
-    overflow: hidden;
 }
 
 .container{
     width: 100%;
-    overflow: hidden;
 }
 
 .side-pan{
@@ -124,7 +122,8 @@ hr{
 /* Edit profile Form */
 .edit-profile{
     position: relative;
-    height: -webkit-fill-available;   
+    height: -webkit-fill-available;
+    height: -moz-available;   
 }
 
 .edit-profile form{
@@ -151,6 +150,7 @@ hr{
     padding: 5px;
     border-radius: 5px;
     width: -webkit-fill-available;
+    width: -moz-available;
     display: inline-block;
     margin-top: 1%;
     box-shadow: 0 0 5px 1px #393e464a;
@@ -166,6 +166,7 @@ hr{
 #modal-trigger{
     margin-top: 2%;
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 /* create registraion form */
@@ -193,6 +194,11 @@ hr{
     width: 40%;
     float: left;
     margin-left: 1%;
+}
+
+.registration-status span{
+    color: #393e46c9;
+    font-weight: bold;
 }
 
 /* result card */
@@ -244,6 +250,7 @@ hr{
     padding: 10px;
     text-align: left;
     width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 .result-input form label{
@@ -256,6 +263,7 @@ hr{
     border: 2px solid #393e4699;
     border-radius: 5px;
     width: -webkit-fill-available;
+    width: -moz-available;
     display: inline-block;
     margin-top: 2%;
 }
@@ -269,4 +277,24 @@ hr{
     color: white;
     font-weight: bold;
     border-radius: 5px;
+}
+
+/* password reset */
+.password_reset input{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.password_reset label{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    .side-pan{
+        height: -webkit-fill-available;
+        height: -moz-available;
+    }
+    .login button{
+        width: max-content;
+    }
 }
