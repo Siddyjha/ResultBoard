@@ -1,20 +1,6 @@
-{% extends 'temp.html' %}
+{% extends 'instructor/Home.html' %}
 
 {% block title %} Create Result {% endblock %}
-
-{% block nav %} {% endblock %}
-
-{% block side-pan %} 
-    <div class="well profile-detail">
-        <div class="row">
-            <h2>{{ request.user.userprofilefaculty.name}}</h2>
-            <hr>
-            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
-
-            <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
-        </div>
-    </div>
-{% endblock %}
 
 {% block body %}
 <!--Script to get course name on the basis of selected course--> 
@@ -23,7 +9,6 @@
         $("#id_course").change(
         function get_course_name()
         {
-            console.log("hello")
             var cid = $("#id_course").val();
             $.ajax({
                 url: '{% url "result:GetCourseName" %}',

@@ -18,6 +18,11 @@ body{
     background-color: #222831;
 }
 
+.helptext ul{
+    font-size: 15px;
+    list-style-type: none;
+}
+
 .banner{
     font-size: 500%;
     color: #eeeeee42;
@@ -296,5 +301,32 @@ hr{
     }
     .login button{
         width: max-content;
+    }
+}
+
+.res-hist ul li{
+    color: #393e46b3;
+    font-weight: bold;
+}
+
+.res-hist ul li:hover{
+    color: #393e46;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px){
+    .login form, .login{
+        max-width: 500px;
+        width: 250px;
+     }
+     
+    .edit-profile form{
+        width: -webkit-fill-available;
+        width: -moz-available;
+    }
+
+    .result-card .well{
+        width: -webkit-fill-available;
+        width: -moz-available;
     }
 }

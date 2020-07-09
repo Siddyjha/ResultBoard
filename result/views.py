@@ -7,6 +7,7 @@ from resultportal.decorators import instructor_required
 from django.http import JsonResponse
 from django.contrib import messages
 from registration.models import Registration
+from instructor.models import ResultHistory
 
 # openpyxl module
 import openpyxl
@@ -50,9 +51,11 @@ def CreateResult(request):
                             student_marks = row_data[1],
                             total_marks = form_input.get('total_marks'),
                             highest_marks = form_input.get('highest_marks'),
-                            avg_marks = form_input.get('avg_marks')
+                            avg_marks = form_input.get('avg_marks'),
+                            weightage = form_input.get('weightage')
                         )
             messages.info(request, "Results sent Successfully", extra_tags="result-success")
+            ResultHistory.objects.create(instructor=request.user.userprofilefaculty, excel_file=excel_file, exam_type=form_input.get('exam_type'))
 
     else:
         form = ResultForm(request=request)

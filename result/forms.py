@@ -12,6 +12,7 @@ class ResultForm(forms.Form):
     course_name = forms.CharField(max_length=254)
     exam_type = forms.CharField(max_length=254)
     total_marks = forms.IntegerField()
+    weightage = forms.DecimalField(max_digits=5, decimal_places=2, max_value=100, min_value=0)
     highest_marks = forms.IntegerField()
     avg_marks = forms.IntegerField()
     

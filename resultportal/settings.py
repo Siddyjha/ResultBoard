@@ -56,8 +56,6 @@ INSTALLED_APPS = [
     'crispy_forms'
 ]
 
-AUTH_USER_MODEL = 'users.User'
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -135,10 +133,11 @@ USE_TZ = True
 SITE_ID = 1
 
 #all-auth
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 LOGIN_REDIRECT_URL = "users:Home"
 
 #crispy form
@@ -147,6 +146,7 @@ CRISPY_TEMPLATE_PACK = 'uni_form'
 # variables for urls
 student_login_url = 'http://localhost:8000/accounts/login'
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -154,4 +154,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+#Email Backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

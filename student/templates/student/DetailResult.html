@@ -34,6 +34,7 @@
                                     <th>Total Marks</th>
                                     <th>Highest</th>
                                     <th>Class Average</th>
+                                    <th>% of grade</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,8 +45,23 @@
                                         <td>{{ res.total_marks }}</td>
                                         <td>{{ res.highest_marks }}</td>
                                         <td>{{ res.avg_marks }}</td>
+                                        <td>{{ res.get_contribution}}</td>
                                     </tr>
                                 {% endfor %}
+                            </tbody>
+                        </table>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Grade</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ grade }}</td>
+                                    <td>{{ perc }}</td>
+                                </tr>
                             </tbody>
                         </table>
                 </div>

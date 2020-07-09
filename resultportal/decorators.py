@@ -5,6 +5,7 @@ from django.contrib.auth import REDIRECT_FIELD_NAME
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
+from django.http import HttpResponseRedirect
 
 from django.shortcuts import resolve_url
 from urllib.parse import urlparse
@@ -125,4 +126,19 @@ def userprofile_student_required(function):
     wrap.__doc__ = function.__doc__
     wrap.__name__ = function.__name__
     wrap.__dict__ = function.__dict__
-    return wrap 
+    return wrap
+
+# check first login password change
+def first_login_password_changed(function):
+    @wraps(function)
+    def wrap(request, *args, **kwargs):
+        userprofile = request.user.userprofilestudent
+        if userprofile.def_pass_changed == False:
+            messages.error(request, "You must change your password to continue using this portal", extra_tags="first_login_pass_change")
+            return redirect('users:FirstLoginPasswordChange')
+        else:
+            return function(request, *args, **kwargs)
+    return wrap
+
+
+        

@@ -12,4 +12,8 @@ class Registration(models.Model):
     def __str__(self):
         return "{id}".format(id=self.pk)
 
+class ApprovedRegistrations(models.Model):
+    rollnum = models.IntegerField()
 
+    def __str__(self):
+        return "{}".format(self.rollnum)

@@ -1,0 +1,18 @@
+{% extends 'users/BulkUserCreation.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="bulk-reg">
+                    <form action="{% url 'admin:BulkReg' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <h5>Upload a excel file with only roll numbers</h5>
+                        <input type="file" title="upload excel file" name="excel_file" required="required" id="file-input" accept=".xlsx, .xlsm, .xlsb, .xltx, .xltm, .xls">
+                        <input type="submit" class="btn btn-success" value="send" id="send">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

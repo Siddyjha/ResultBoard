@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import UserProfileForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
+from . models import UserProfileStudent
+from .forms import UserProfileForm
 
 # Handles adding user information after new user signup
 @login_required(login_url='account_login')
@@ -27,6 +30,25 @@ def CreateProfileView(request):
         }
 
         return render(request, 'users/CreateProfile.html', context)
+
+#View for changing password at first Login
+@login_required(login_url='account_login')
+def FirstLoginPasswordChange(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            userprofile = UserProfileStudent.objects.get(user=request.user)
+            userprofile.def_pass_changed = True
+            userprofile.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('users:Home')
+    else:
+        form = PasswordChangeForm(user=request.user)
+    context = {
+        'form':form
+    }
+    return render(request, 'users/FirstLoginPasswordChange.html', context)
 
 # viewing user profile
 def UserProfileView(request):

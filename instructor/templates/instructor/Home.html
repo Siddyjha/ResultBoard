@@ -2,17 +2,28 @@
 
 {% block title %} Home {% endblock %}
 
-{% block nav %} {% endblock %}
+{% block nav %} 
+    <ul class="nav flex-column">
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'instructor:HomeView' %}">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="{% url 'result:CreateResult' %}">Send Results</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'instructor:SentResultView' %}">Result History</a>
+        </li>
+    </ul>
+{% endblock %}
 
 {% block side-pan %} 
     <div class="well profile-detail">
         <div class="row">
             <h2>{{ request.user.userprofilefaculty.name}}</h2>
             <hr>
-            <p><span>Department:</span>  {{ request.user.userprofilestudent.department}}</p>
+            <p><span>Department:</span>  {{ request.user.userprofilefaculty.department}}</p>
 
             <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
-            <a href="{% url 'result:CreateResult' %}"><button type="button" class="btn btn-info">Create New Result</button></a>
         </div>
     </div>
 {% endblock %}
