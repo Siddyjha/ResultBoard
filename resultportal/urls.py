@@ -35,5 +35,6 @@ urlpatterns = [
     path('student/', include('student.urls')),
     path('instructor/', include('instructor.urls')),
     path('result/', include('result.urls')),
-    path('registration/', include('registration.urls'))
+    path('registration/', include('registration.urls')),
+    path('message/', include('message.urls'))
 ]

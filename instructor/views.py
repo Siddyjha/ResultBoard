@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . models import ResultHistory
 from users.models import UserProfileFaculty
 from django.http import JsonResponse
+from message.utils import Inbox
 import json
 import openpyxl
 
@@ -58,5 +59,15 @@ def ResultPreview(request):
         'json': json_obj
     }
     return JsonResponse(data, safe=False)
+
+# inbox
+def InstructorInboxView(request):
+    messages = Inbox(request.user).get_messages()
+
+    context = {
+        'msg': messages
+    }
+
+    return render(request, 'instructor/Inbox.html', context)
 
     

@@ -1,0 +1,43 @@
+{% extends 'instructor/Home.html' %}
+
+{% block title %} Inbox {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="inbox">
+                    <h2><span class="label label-warning">Inbox</span></h2>
+                    {% for m in msg %}
+                        <div class="well">
+                            <h4 style="font-weight: bold;">
+                                {{ m.subject}}
+                                <a href="">
+                                    <span   
+                                        class="glyphicon glyphicon-trash" 
+                                        style="float:right; margin: 0 5px 0 5px; "
+                                        data-toggle="tootip" title="Delete Message">    
+                                    </span>
+                                </a> 
+                                <a href="">
+                                    <span 
+                                        class="glyphicon glyphicon-send" 
+                                        style="float:right; margin: 0 5px 0 5px;"
+                                        data-toggle="tootip" title="Reply">
+                                    </span>
+                                </a>
+                            </h4>
+                            <span style="font-weight: bold  ;">From: {{ m.sender}} Name: {{ m.sender.userprofilestudent.name}}</span><br>
+                            <p>{{ m.body}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+{% endblock %}

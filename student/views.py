@@ -3,8 +3,10 @@ from registration.models import Registration
 from result.models import Result
 from courses.models import Course
 from result.utils import get_sub_grade
+from message.utils import Inbox
 #forms
 from users.forms import UserProfileForm
+from message.forms import MessageForm
 
 from resultportal.settings import student_login_url
 
@@ -95,13 +97,14 @@ def EditUserProfileView(request):
     return render(request, 'student/EditProfile.html', context)
 
 # detailed view of course and all it's results
-#@userprofile_student_required  
+@userprofile_student_required  
 @student_required(login_url=student_login_url, redirect_field_name='')
 @first_login_password_changed
 def DetailResultView(request, cid):
     
     student = request.user.userprofilestudent
     course  = Course.objects.get(cid=cid)
+    msgform = MessageForm()
     
     results = Result.objects.all().filter(student=student, course=course)
 
@@ -115,7 +118,21 @@ def DetailResultView(request, cid):
         'results': results,
         'course': course,
         'grade': grade,
-        'perc': perc
+        'perc': perc,
+        'msgform': msgform
     }
 
     return render(request, 'student/DetailResult.html', context)
+
+#student Inbox
+@userprofile_student_required  
+@student_required(login_url=student_login_url, redirect_field_name='')
+@first_login_password_changed
+def StudentInboxView(request):
+    messages = Inbox(request.user).get_messages()
+
+    context = {
+        'msg': messages
+    }
+
+    return render(request, '', context)

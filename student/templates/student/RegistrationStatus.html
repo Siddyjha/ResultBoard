@@ -24,6 +24,8 @@
     <div class="container">
         <div class="registration-status">
             <div class="row">
+                <h2><span class="label label-primary" style="color:#eeeeee;">Registration Status</span></h2>
+                <a href="{% url 'registration:StatusUpdate' %}"><button type="button" class="btn btn-info">Update Status</button></a>
                 {% if approved_reg %}
                     <div class="alert alert-success" role="alert">
                         <h3>Approved</h3>

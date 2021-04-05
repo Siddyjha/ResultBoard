@@ -21,7 +21,12 @@
         <div class="row">
             <h2>{{ request.user.userprofilefaculty.name}}</h2>
             <hr>
-            <p><span>Department:</span>  {{ request.user.userprofilefaculty.department}}</p>
+            <p>
+                <span>Department:</span>  {{ request.user.userprofilefaculty.department}}
+                <a href="{% url 'instructor:Inbox' %}">
+                    <span class="glyphicon glyphicon-envelope" style="float:right; font-size: 200%; margin: 0 5px 0 5px;"></span>
+                </a>
+            </p>
 
             <a href="{% url 'account_logout' %}"><button type="button" class="btn btn-danger">Sign out</button></a>
         </div>

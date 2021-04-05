@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'student',
     'result',
     'instructor',
+    'message',
     # third party
     'django.contrib.sites',
     'allauth',

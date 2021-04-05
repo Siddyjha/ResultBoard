@@ -161,13 +161,6 @@ hr{
     box-shadow: 0 0 5px 1px #393e464a;
 }
 
-.edit-profile span{
-    position: relative;
-    display: inline-block;
-    font-size: 200%;
-    margin-top: 2%;
-}
-
 #modal-trigger{
     margin-top: 2%;
     width: -webkit-fill-available;
@@ -204,6 +197,10 @@ hr{
 .registration-status span{
     color: #393e46c9;
     font-weight: bold;
+}
+
+.registration-status button{
+    margin: 10px 0 10px 0;
 }
 
 /* result card */
@@ -312,6 +309,15 @@ hr{
 .res-hist ul li:hover{
     color: #393e46;
     cursor: pointer;
+}
+
+/*Inbox*/
+.inbox .well{
+    padding: 10px;
+}
+
+.inbox a{
+    color: #222831;
 }
 
 @media screen and (max-width: 500px){

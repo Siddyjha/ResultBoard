@@ -37,7 +37,8 @@ class ResgistrationAdmin(admin.ModelAdmin):
                     row_data.append(str(cell.value))
                 
                 rollnum = row_data[0]
-                ApprovedRegistrations.objects.create(rollnum=rollnum)
+                semester = row_data[1]
+                ApprovedRegistrations.objects.create(rollnum=rollnum, semester=semester)
         
         return render(request, 'registration/BulkReg.html')
 

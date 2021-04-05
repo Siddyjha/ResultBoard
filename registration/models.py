@@ -13,7 +13,8 @@ class Registration(models.Model):
         return "{id}".format(id=self.pk)
 
 class ApprovedRegistrations(models.Model):
-    rollnum = models.IntegerField()
+    rollnum = models.IntegerField(blank=False)
+    semester = models.IntegerField(choices=list(zip(range(1,9), range(1,9))), default=1)
 
     def __str__(self):
         return "{}".format(self.rollnum)
